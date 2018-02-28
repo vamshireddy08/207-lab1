@@ -38,14 +38,12 @@ int main(int argc, char **argv)
 	if (connect(sockfd, (struct sockaddr *)  &servaddr, sizeof(servaddr)) < 0)
 		 perror("connect error"); 
 	else 
-printf("connection established  %d \n",sockfd);
+	printf("connection established  %d \n",sockfd);
 
-	while ( (n = recv(sockfd, &recvline, 2047,0)) > 0) {
-		counter++;
+	 recv(sockfd, &recvline, 2047,0);
+		
 		printf("%s", recvline);
-	}
-	if (n < 0)
-		 printf("read error");
+	
 	
 	return 0;
 }
